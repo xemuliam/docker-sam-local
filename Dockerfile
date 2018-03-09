@@ -5,7 +5,7 @@ ENV        VERSION=0.2.6 \
            SAM_HOME=/opt/sam
 RUN        mkdir -p ${SAM_HOME} && \
            apk add --no-cache --virtual=.build-deps curl && \
-           curl -L ${DIST_MIRROR}/download/v${VERSION}/sam_${VERSION}_linux_386.tar.gz | tar xvz -C /usr/local/bin && \
+           curl -L ${DIST_MIRROR}/download/v${VERSION}/sam_${VERSION}_linux_amd64.tar.gz | tar xvz -C /usr/local/bin && \
            rm -f *.tar.gz && \
            apk del .build-deps && \
            apk add --no-cache py-pip && pip install awscli
