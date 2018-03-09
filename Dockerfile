@@ -1,7 +1,7 @@
 FROM       alpine
 MAINTAINER Viacheslav Kalashnikov <xemuliam@gmail.com>
 ARG        DIST_MIRROR=https://github.com/awslabs/aws-sam-local/releases
-ENV        VERSION=0.2.7 \
+ENV        VERSION=0.2.8 \
            SAM_HOME=/opt/sam
 RUN        mkdir -p ${SAM_HOME} && \
            apk add --no-cache --virtual=.build-deps curl && \
