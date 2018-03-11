@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -e
+
+args=""
+port="3000"
+host="--host 0.0.0.0"
+basedir="--docker-volume-basedir $(pwd)"
+cmd="docker run \
+  -v $(echo $HOME)/.aws/credentials:/root/.aws/credentials \
+  -v $(echo $HOME)/.aws/config:/root/.aws/config \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(pwd):/opt/sam \
+  --rm -i"
+
+case $1 in
+  local)
+    case $2 in
+      invoke)
+        args="${@: 1: $#-1} $basedir ${@: -1}" ;;
+      start-api)
+        cmd=$cmd"t \
+          --name sam-api"
+        for parm in `seq 3 "$#"`; do
+          [[ " ${@: $parm: 1} " =~ " -p " ]] || [[ " ${@: $parm: 1} " =~ " --port " ]] && port="${@: $parm+1: 1}"
+          [[ " ${@: $parm: 1} " =~ " --host " ]] && host="--host ${@: $parm+1: 1}"
+        done
+        args="$@ $basedir $host"
+        cmd=$cmd" \
+          -p $port:$port"
+        ;;
+    esac ;;
+  *)
+    args="$@"
+esac
+
+cmd=$cmd" \
+	xemuliam/sam"
+
+$cmd $args
