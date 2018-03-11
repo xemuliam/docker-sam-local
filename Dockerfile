@@ -1,4 +1,4 @@
-FROM       alpine
+FROM       xemuliam/alpine:3.7
 MAINTAINER Viacheslav Kalashnikov <xemuliam@gmail.com>
 ARG        DIST_MIRROR=https://github.com/awslabs/aws-sam-local/releases
 ENV        VERSION=0.2.7 \
