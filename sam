@@ -5,27 +5,36 @@ set -e
 args=""
 port="3000"
 host="--host 0.0.0.0"
-basedir="--docker-volume-basedir $(pwd)"
+basedir="--docker-volume-basedir $(pwd -P)"
+skipullimage="--skip-pull-image"
+
+[ -f env.json ] && envars="--env-vars env.json" || envars=""
+
 cmd="docker run \
   -v $(echo $HOME)/.aws/credentials:/root/.aws/credentials \
   -v $(echo $HOME)/.aws/config:/root/.aws/config \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $(pwd):/opt/sam \
+  -v $(pwd -P):/opt/sam \
   --rm -i"
 
 case $1 in
   local)
     case $2 in
       invoke)
-        args="${@: 1: $#-1} $basedir ${@: -1}" ;;
+        for parm in `seq 3 "$#"`; do
+          [[ " ${@: $parm: 1} " =~ " -n " ]] || [[ " ${@: $parm: 1} " =~ " --env-vars " ]] && envars=""
+        done
+        args="${@: 1: $#-1} $basedir $envars $skipullimage ${@: -1}"
+        ;;
       start-api)
         cmd=$cmd"t \
           --name sam-api"
         for parm in `seq 3 "$#"`; do
           [[ " ${@: $parm: 1} " =~ " -p " ]] || [[ " ${@: $parm: 1} " =~ " --port " ]] && port="${@: $parm+1: 1}"
           [[ " ${@: $parm: 1} " =~ " --host " ]] && host="--host ${@: $parm+1: 1}"
+          [[ " ${@: $parm: 1} " =~ " -n " ]] || [[ " ${@: $parm: 1} " =~ " --env-vars " ]] && envars=""
         done
-        args="$@ $basedir $host"
+        args="$@ $basedir $host $envars $skipullimage"
         cmd=$cmd" \
           -p $port:$port"
         ;;
@@ -35,6 +44,6 @@ case $1 in
 esac
 
 cmd=$cmd" \
-	xemuliam/sam"
+  xemuliam/sam"
 
 $cmd $args
