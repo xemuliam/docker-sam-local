@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: A simple Hello World Serverless project
+
+Resources:
+  HelloWorldNode:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs6.10
+      Handler: node-example.handler
+      CodeUri: .
+      
+  HelloWorldPython:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: python-example.handler
+      Runtime: python3.6
+      CodeUri: .
