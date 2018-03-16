@@ -100,12 +100,12 @@ Don't be confused by calling functions **node** or **python**. Those are resourc
 
 In service mode you can use your browser or __curl__ to call particular functions by REST-API:
 
-* GET request
+#### GET request
 ```
 curl http://localhost:3000/python/Jude
 ```
 
-* POST request
+#### POST request
 ```
 curl -d '{"test":"payload"}' http://localhost:3000/node/Vanessa
 ```
