@@ -75,10 +75,11 @@ or
 
 * Local invoke of lambda-function:
 
+with event from stdin
 ```
 echo '{"name":"Jude"}' | ./sam local invoke python
 ```
-or
+or with event from file
 ```
 ./sam local invoke -e event.json node
 ```
