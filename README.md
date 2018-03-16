@@ -30,8 +30,12 @@
 
 # Overview
 Main idea is to give possibility to develop and test AWS SAM applications without AWS involvement and charging.
+
 You can make direct invocation of particular lambda functions or use APIG-interface to call them.
+
 Two runtimes are present in examples: Pytnon and NodeJS. Examples have been made to provide simple and clear view how it works. Examples are identical in the result and almost identical in code-style and formatting.
+
+
 Feel difference :)
 
 ## Official SAM Local Documentation
