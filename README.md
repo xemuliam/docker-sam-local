@@ -59,16 +59,15 @@ Ensure the following pre-requisites are met.
 1. Clone or download this project code
 2. Go to `docker-sam-local` directory
 
-__Please bear in mind that syntax of commands remains intact despite dockerization__
+__Please bear in mind that syntax of commands **remains intact** despite dockerization__
 
-* Help
+### Help
 
 ```
 ./sam
 ```
 
-* Template validation
-
+### Template validation
 ```
 ./sam validate
 ```
@@ -77,22 +76,27 @@ or
 ./sam validate -t template.yaml
 ```
 
-* Local invoke of lambda-function:
+### Local invoke of lambda-function:
 
 with event from stdin
 ```
 echo '{"name":"Jude"}' | ./sam local invoke python
 ```
+
 or with event from file
 ```
 ./sam local invoke -e event.json node
 ```
 
-* Service (API) mode:
+Don't be confused by calling functions **node** or **python**. Those are resource names in my **template.yaml** file. Just for fun.
+
+
+### Service (API) mode:
 
 ```
 ./sam local start-api
 ```
+
 
 In service mode you can use your browser or __curl__ to call particular functions by REST-API:
 
@@ -100,9 +104,10 @@ In service mode you can use your browser or __curl__ to call particular function
 ```
 curl http://localhost:3000/python/Jude
 ```
+
 * POST request
 ```
-curl -d '{"test":"payload"}' http://localhost:3000/python/Vanessa
+curl -d '{"test":"payload"}' http://localhost:3000/node/Vanessa
 ```
 
 # Enjoy! :)
