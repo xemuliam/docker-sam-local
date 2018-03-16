@@ -1,3 +1,3 @@
-![sam-local-logo](https://postimg.org/image/3tz6cy6i3/)
+![sam-local-logo](https://s9.postimg.org/uf1p8i8vj/sam-local-banner.png)
 
 # SAM local
