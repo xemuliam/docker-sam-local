@@ -4,6 +4,8 @@
 
 ## 0.x
 - ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.8.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.8.svg) __0.2.8 = 0.2 = latest__
+- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.7.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.7.svg)
+- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.6.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.6.svg)
 
 [Docker](https://www.docker.com/what-docker) image for [AWS SAM local](https://github.com/awslabs/aws-sam-local).
 
