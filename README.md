@@ -28,3 +28,76 @@
           \____\______/
 ```
 
+# Overview
+Main idea is to give possibility to develop and test AWS SAM applications without AWS involvement and charging.
+You can make direct invocation of particular lambda functions or use APIG-interface to call them.
+Two runtimes are present in examples: Pytnon and NodeJS. Examples have been made to provide simple and clear view how it works. Examples are identical in the result and almost identical in code-style and formatting.
+Feel difference :)
+
+## Official SAM Local Documentation
+
+- [AWS Lambda Docs](https://docs.aws.amazon.com/lambda/latest/dg/test-sam-local.html)
+
+
+# Usage
+
+This image can either be used as a image for building on top of SAM-local or just to experiment with. I personally have not attempted to use this in a production use case.
+
+
+## Pre-Requisites
+Ensure the following pre-requisites are met.
+
+- Linux, Mac, Windows + WSL
+- Docker 1.10+
+
+## How to use
+
+1. Clone or download this project code
+2. Go to `docker-sam-local` directory
+
+__Please bear in mind that syntax of commands remains intact despite dockerization__
+
+* Help
+
+```
+./sam
+```
+
+* Template validation
+
+```
+./sam validate
+```
+or
+```
+./sam validate -t template.yaml
+```
+
+* Local invoke of lambda-function:
+
+```
+echo '{"name":"Jude"}' | ./sam local invoke python
+```
+or
+```
+./sam local invoke -e event.json node
+```
+
+* Service (API) mode:
+
+```
+./sam local start-api
+```
+
+In service mode you can use your browser or __curl__ to call particular functions by REST-API:
+
+* GET request
+```
+curl http://localhost:3000/python/Jude
+```
+* POST request
+```
+curl -d '{"test":"payload"}' http://localhost:3000/python/Vanessa
+```
+
+# Enjoy! :)
