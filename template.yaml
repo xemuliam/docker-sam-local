@@ -4,16 +4,38 @@ Transform: AWS::Serverless-2016-10-31
 Description: Very simple Serverless project
 
 Resources:
-  HeyNode:
+  node:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: nodejs6.10
       Handler: node-example.handler
       CodeUri: .
-      
-  HeyPy:
+      Events:
+        getMessage:
+          Type: Api
+          Properties:
+            Path: /node/{name}
+            Method: get
+        postMessage:
+          Type: Api
+          Properties:
+            Path: /node/{name}
+            Method: post
+
+  python:
     Type: AWS::Serverless::Function
     Properties:
       Handler: python-example.handler
       Runtime: python3.6
       CodeUri: .
+      Events:
+        getMessage:
+          Type: Api
+          Properties:
+            Path: /python/{name}
+            Method: get
+        postMessage:
+          Type: Api
+          Properties:
+            Path: /python/{name}
+            Method: post
