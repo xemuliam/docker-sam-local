@@ -78,15 +78,16 @@ or
 
 ### Local invoke of lambda-function:
 
-with event from stdin
+#### with event from stdin
 ```
 echo '{"name":"Jude"}' | ./sam local invoke python
 ```
 
-or with event from file
+#### with event from file
 ```
 ./sam local invoke -e event.json node
 ```
+
 
 Don't be confused by calling functions **node** or **python**. Those are resource names in my **template.yaml** file. Just for fun.
 
@@ -109,5 +110,6 @@ curl http://localhost:3000/python/Jude
 ```
 curl -d '{"test":"payload"}' http://localhost:3000/node/Vanessa
 ```
+
 
 # Enjoy! :)
