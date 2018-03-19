@@ -16,15 +16,15 @@ def handler(event, context):
 
 		output = {
 			'GET': "Hey " + params['name'] + "!\n",
-			'POST': "Hey " + params['name'] + "!\n" \
-					+ "\n" \
-					+ "Your payload:\n" \
+			'POST': "Hey " + params['name'] + "!\n"
+					+ "\n"
+					+ "Your payload:\n"
 					+ payload + "\n"
 		}[event['requestContext']['httpMethod']]
 
-		return { \
-			"statusCode": 200, \
-			"body": output \
+		return {
+			"statusCode": 200,
+			"body": output
 			}
 	else:
 		output = "Hey " + event['name'] + "!"

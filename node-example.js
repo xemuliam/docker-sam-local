@@ -13,21 +13,15 @@ exports.handler = (event, context, callback) => {
             for(key in body) {
                 params[key] = body[key];
             }
-        }
-
-		switch(event.requestContext.httpMethod) {
-
-			case 'GET':
-				output = "Hey " + params.name + "!\n";
-				break;
-					
-			case 'POST':
-				output = "Hey " + params.name + "!\n"
-						+ "\n"
-						+ "Your payload:\n"
-						+ payload + "\n";
-				break;
 		}
+
+		output = {
+			GET: () => "Hey " + params.name + "!\n" ,
+			POST: () => "Hey " + params['name'] + "!\n"
+					+ "\n"
+					+ "Your payload:\n"
+					+ payload + "\n" 
+		}[event.requestContext.httpMethod]();
 		
 		callback(null, {
 			statusCode: 200,
