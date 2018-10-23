@@ -3,7 +3,10 @@
 # SAM local
 
 ## 0.x
-- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.8.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.8.svg) __0.2.8 = 0.2 = latest__
+- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.11.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.11.svg) __0.2.11 = 0.2 = latest__
+- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.10.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.10.svg)
+- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.9.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.9.svg)
+- ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.8.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.8.svg)
 - ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.7.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.7.svg)
 - ![Version](https://images.microbadger.com/badges/version/xemuliam/sam:0.2.6.svg) ![Layers](https://images.microbadger.com/badges/image/xemuliam/sam:0.2.6.svg)
 
