@@ -1,4 +1,4 @@
-![sam-local-logo](https://s9.postimg.org/uf1p8i8vj/sam-local-banner.png)
+![sam-local-logo](https://i.imgur.com/ZtMyp1Y.png)
 
 # SAM local
 
@@ -110,6 +110,5 @@ curl http://localhost:3000/python/Jude
 ```
 curl -d '{"test":"payload"}' http://localhost:3000/node/Vanessa
 ```
-
 
 # Enjoy! :)
